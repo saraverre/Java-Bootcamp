@@ -2,8 +2,12 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
-
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.Arrays;
+import java.util.List;
 import static  org.junit.jupiter.api.Assertions.*;
 
 class TestsExerciseTest {
@@ -79,15 +83,28 @@ class TestsExerciseTest {
         assertTrue(TestsExercise.isPalindrome("otto"));
     }
 
-//    @ParameterizedTest
+    static List<Arguments> data() {
+        return Arrays.asList(
+                Arguments.of(new int[]{1, 2}, new int[]{3, 4}, new int[]{1, 2, 3, 4}),
+                Arguments.of(new int[]{}, new int[]{5, 6}, new int[]{5, 6}),
+                Arguments.of(new int[]{7, 8}, new int[]{}, new int[]{7, 8}),
+                Arguments.of(new int[]{}, new int[]{}, new int[]{}),
+                Arguments.of(new int[]{9}, new int[]{10}, new int[]{9, 10}),
+                Arguments.of(new int[]{-1, -2}, new int[]{3, 4}, new int[]{-1, -2, 3, 4}),
+                Arguments.of(new int[]{1, 1}, new int[]{1, 1}, new int[]{1, 1, 1, 1})
+        );
+    }
+
+
+
 //    @CsvSource({
-//            "0, 0",
+//            "1, 0",
 //            "1, 1"
 //    })
 //    @CsvFileSource(resources = "/testdata/data.csv", numLinesToSkip = 1)
-//    void fibonacci(int inpur, int expected) {
-//        assertEquals(expected, TestsExercise.fibonacci(input));
-//    }
-
-
+    @ParameterizedTest
+    @MethodSource("data")
+    void testMergeArrays(int[] inputA, int[] inputB, int[] expected) {
+        assertArrayEquals(expected, TestsExercise.mergeArrays(inputA, inputB));
+    }
 }
