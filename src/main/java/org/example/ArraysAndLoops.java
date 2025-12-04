@@ -86,4 +86,14 @@ public class ArraysAndLoops {
 
         System.out.println("smallest: " + min +  ", largest: " + max);
     }
+
+    public static int findMin(int[] numbers) {
+        int min = numbers[0];
+        for (int number : numbers) {
+            if (number < min) {
+                min = number;
+            }
+        }
+        return min;
+    }
 }
