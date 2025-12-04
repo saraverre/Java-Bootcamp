@@ -1,10 +1,6 @@
 package org.example;
 
 public class TestsExercise {
-    public static void main(String[] args) {
-
-    }
-
     public static boolean isPositive(int number) {
         return number > 0;
     }

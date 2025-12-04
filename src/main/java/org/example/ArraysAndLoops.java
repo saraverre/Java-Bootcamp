@@ -1,12 +1,10 @@
 package org.example;
 
 public class ArraysAndLoops {
-    public static void main() {
+    static void main() {
         String[] names = new String[2];
         names[0] = "Maxi";
         names[1] = "Max";
-
-        String[] names2 = {"Maxi", "Max"};
 
         // for loop
         for (int i = 0; i < names.length; i++) {
