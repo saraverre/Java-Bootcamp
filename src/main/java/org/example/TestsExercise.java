@@ -24,7 +24,7 @@ public class TestsExercise {
     }
 
     public static int sum(int a, int b) {
-        return a + b;
+        return a - b;
     }
 
     public static boolean isEven(int number) {
