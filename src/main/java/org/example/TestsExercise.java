@@ -26,4 +26,25 @@ public class TestsExercise {
         }
         return number1 / number2;
     }
+
+    public static int sum(int a, int b) {
+        return a + b;
+    }
+
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+
+    public static String reverseString(String text) {
+        if (text == null) {
+            return null;
+        }
+        return new StringBuilder(text).reverse().toString();
+    }
+
+    public static boolean isPalindrome(String text) {
+        String reversed = new StringBuilder(text).reverse().toString();
+        System.out.println(reversed);
+        return text.equals(reversed);
+    }
 }
